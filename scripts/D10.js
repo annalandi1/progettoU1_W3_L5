@@ -459,22 +459,66 @@ const removeIndex = function (i){
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+const selectContainer = function() {
+  const containerElement = document.getElementById("container")
+  
+  // Ritorna l'elemento selezionato
+  return containerElement
+}
 
+const container = selectContainer()
+console.log(container.innerText)
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+const selectTd = function (){
+   const selectedTd = document.getElementsByTagName('td')
+
+   return selectedTd
+} 
+const td = selectTd()
+console.log(td)
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+const tdText = function() {
+  const tdElements = document.querySelectorAll("td")
+  for (let i = 0; i < tdElements.length; i++) {
+    
+    console.log(tdElements[i].textContent)// Stampa il contenuto di ciascun <td> nella console
+  }
+}
+tdText()
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+const addBackground = function() {
+  
+  const links = document.querySelectorAll("a") // seleziono tutti gli elementi di a 
+
+  for (let i = 0; i < links.length; i++) {
+                                            
+    links[i].style.backgroundColor = "red"
+  }
+}
+addBackground()
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+function addElement() {
+  const newElement = document.getElementById("newItem").value
+  const li = document.createElement("li") // Creo un nuovo elemento <li>
+  li.textContent = newElement
+// Aggiungere il nuovo <li> alla lista non ordinata
+  document.getElementById("myList").appendChild(li);// Aggiungere il nuovo <li> alla lista non ordinata
+
+  // Ripulire l'input
+  document.getElementById("newItem").value = ''
+}
+addElement()
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
