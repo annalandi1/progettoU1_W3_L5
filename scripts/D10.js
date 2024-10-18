@@ -412,16 +412,47 @@ console.log("Sum of all years:", total)
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 const searchByTitle = function (movies, searchTitle){
-
+  const result = [];
+  
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.toLowerCase().includes(searchTitle.toLowerCase())) { //ciclo l'array movies e controllo se searchMovies corrisponde al nome del film 
+      result.push(movies[i]) // aggiungo il film a result se il titolo corrisponde
+    }
+  }
+  
+  return result  // Restituiamo l'array con i film che corrispondono
 }
+const foundMovies = searchByTitle(movies, "lord")
+console.log("Movies found:", foundMovies)
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+const searchAndDivide = function (movies, searchTitle){
+  const result = {
+    match: [],
+    unmatch: []   //creo due array per il risultato della funzione
+  }
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.toLowerCase().includes(searchTitle.toLowerCase())) { 
+      result.match.push(movies[i]); // Aggiungiamo a match se c'è una corrispondenza
+    } else {
+      result.unmatch.push(movies[i]); // altrimenti aggiungiamo a unmatch 
+    }
+  }
+   return result  
+  }
+
+  const searchResult = searchAndDivide(movies, "the")
+  console.log("Search and divide result:", searchResult)
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+const removeIndex = function (i){
+   movies.splice(i,1) //rimuove l'indice selezionato
+   return movies
+}
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
