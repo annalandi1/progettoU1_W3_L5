@@ -467,7 +467,8 @@ const selectContainer = function() {
 }
 
 const container = selectContainer()
-console.log(container.innerText)
+//console.log(container.textContent)
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
@@ -477,7 +478,7 @@ const selectTd = function (){
    return selectedTd
 } 
 const td = selectTd()
-console.log(td)
+//console.log(td)
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
@@ -518,15 +519,30 @@ function addElement() {
   // Ripulire l'input
   document.getElementById("newItem").value = ''
 }
-addElement()
+//addElement()
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+function emptyList() {
+  const list = document.getElementById("myList");
+  
+  while (list.firstChild) {
+      list.removeChild(list.firstChild);
+  }
+}
+//emptyList()
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+function addClassToTr() { 
+  const lines = document.querySelectorAll("tr")
+  lines.forEach(line => {
+      line.classList.add("test")  //  // ho aggiunto la classe "test" a ciascun <tr>
+  })
+}
 
 // [EXTRA] JS Avanzato
 
@@ -541,7 +557,13 @@ addElement()
   ***
 
 */
-
+function halfTree(height) {
+  for (let i = 1; i <= height; i++) { //ciclo da 1 fino all'altezza fornita
+      const stars = '*'.repeat(i) //con repeat creo una striga di * con lunghezza definita da i 
+      console.log(stars)
+  }
+}
+halfTree(3)
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
